@@ -1,3 +1,8 @@
+.photo-list,
+.photo-wrap {
+    list-style-type: none;
+}
+
 .App {
   text-align: center;
 }

@@ -1,6 +1,9 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
+import PhotoList from './Components/PhotoList';
+import SearchPhotos from './Components/SearchPhotos';
 import './App.css';
+
 
 class App extends Component {
 
@@ -30,9 +33,10 @@ class App extends Component {
               <img src={logo} className="App-logo" alt="logo" />
               <h1 className="App-title">Hello World</h1>
             </header>
-            <p className="App-intro">
-
-            </p>
+            <SearchPhotos />
+            <div>
+                <PhotoList data={this.state.photos} />
+            </div>
           </div>
         );
     }
