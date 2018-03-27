@@ -1,18 +1,17 @@
 import React from 'react';
-import Photo from './Photo';
+import PropTypes from 'prop-types';
 
-const PhotoList = props => {
+const PhotoList = props =>
+    <ul>
+        {props.photos.map((photo, index) =>
+            <li key={index}>
+                <img src={photo.urls.small} key={photo.id} />
+            </li>
+        )}
+    </ul>;
 
-    const results = props.data;
-    let photos = results.map(photo =>
-        <Photo url={photo.urls.small} key={photo.id} />
-    );
-
-    return(
-        <ul className="photo-list">
-            {photos}
-        </ul>
-    );
-}
+    PhotoList.propTypes = {
+        photos: PropTypes.array.isRequired
+    }
 
 export default PhotoList;

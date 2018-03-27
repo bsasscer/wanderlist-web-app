@@ -7,18 +7,17 @@ import './App.css';
 
 class App extends Component {
 
-    constructor() {
-        super();
-        this.state = {
-            photos: []
-        };
+    state = {
+        photos: []
     }
 
     componentDidMount() {
-        fetch('https://api.unsplash.com/photos/?client_id=YOUR-API-KEY')
+        fetch(`https://api.unsplash.com/photos/?&client_id=9fdb3a7d4e795ad5ae390a8814311bb31f8e16ebba0816b769cffb8ef2d55a88`)
         .then(response => response.json())
         .then(responseData => {
-            this.setState({ photos: responseData });
+            this.setState({
+                photos: responseData
+            });
         })
         .catch(error => {
             console.log('Error fetching and parsing data', error);
@@ -26,18 +25,18 @@ class App extends Component {
     }
 
     render() {
-        console.log(this.state.photos);
+
         return (
-          <div className="App">
-            <header className="App-header">
-              <img src={logo} className="App-logo" alt="logo" />
-              <h1 className="App-title">Hello World</h1>
-            </header>
-            <SearchPhotos />
-            <div>
-                <PhotoList data={this.state.photos} />
+            <div className="App">
+                <header className="App-header">
+                  <img src={logo} className="App-logo" alt="logo" />
+                  <h1 className="App-title">Hello World</h1>
+                </header>
+                <SearchPhotos onSearch={this.performSearch} />
+                <div>
+                    <PhotoList photos={this.state.photos} />
+                </div>
             </div>
-          </div>
         );
     }
 }
