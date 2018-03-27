@@ -24,6 +24,20 @@ class App extends Component {
         });
     }
 
+    performSearch = (query = 'cats') => {
+        fetch(`https://api.unsplash.com/photos/?&client_id=YOUR-API-KEY`)
+        .then(response => response.json())
+        .then(responseData => {
+            this.setState({
+                photos: responseData
+            });
+        })
+        .catch(error => {
+            console.log('Error fetching and parsing data', error);
+        });
+
+    }
+
     render() {
 
         return (
