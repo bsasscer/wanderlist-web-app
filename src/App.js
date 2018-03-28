@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import { Switch, Route, Router } from 'react-router';
 import logo from './logo.svg';
 import PhotoList from './Components/PhotoList';
 import SearchPhotos from './Components/SearchPhotos';
@@ -39,7 +38,7 @@ class App extends Component {
         return (
             <div className="App">
                 <header className="App-header">
-                  <img src={logo} className="App-logo" alt="logo" />
+                  <img src={logo} className="App-logo" alt="splash" />
                   <h1 className="App-title">Hello World</h1>
                     <SearchPhotos onSearch={this.performSearch} />
                 </header>
