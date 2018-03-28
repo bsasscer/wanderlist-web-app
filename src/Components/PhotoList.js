@@ -3,16 +3,16 @@ import PropTypes from 'prop-types';
 
 const PhotoList = props =>
 
-    <ul className="photo-list">
+    <div className="photo-list">
         {props.results.map((result, index) =>
-            <li key={index}>
+            <div key={index}>
                 <img src={result.urls.small} key={result.id} />
                 {/* <img src={result.user.profile_image.small} className="user-profile-img" />
                 <p className="user-name">{result.user.name}</p>
                 <span>{result.likes}</span> */}
-            </li>
+            </div>
         )}
-    </ul>;
+    </div>;
 
     PhotoList.propTypes = {
         results: PropTypes.array.isRequired

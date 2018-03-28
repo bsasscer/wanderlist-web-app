@@ -19,8 +19,8 @@ class App extends Component {
         this.performSearch();
     }
 
-    performSearch = (query = 'balloon') => {
-        fetch(`https://api.unsplash.com/search/photos?query=${query}&client_id=9fdb3a7d4e795ad5ae390a8814311bb31f8e16ebba0816b769cffb8ef2d55a88`)
+    performSearch = (query = 'germany') => {
+        fetch(`https://api.unsplash.com/search/photos?query=${query}&orientation=landscape&client_id=9fdb3a7d4e795ad5ae390a8814311bb31f8e16ebba0816b769cffb8ef2d55a88`)
         .then(response => response.json())
         .then(responseData => {
             this.setState({
