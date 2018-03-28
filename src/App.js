@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Switch, Route, Router } from 'react-router';
 import logo from './logo.svg';
 import PhotoList from './Components/PhotoList';
 import SearchPhotos from './Components/SearchPhotos';
@@ -7,35 +8,30 @@ import './App.css';
 
 class App extends Component {
 
-    state = {
-        photos: []
+    constructor() {
+        super();
+        this.state = {
+            results: [],
+            loading: true
+        };
     }
 
     componentDidMount() {
-        fetch(`https://api.unsplash.com/photos/?&client_id=9fdb3a7d4e795ad5ae390a8814311bb31f8e16ebba0816b769cffb8ef2d55a88`)
-        .then(response => response.json())
-        .then(responseData => {
-            this.setState({
-                photos: responseData
-            });
-        })
-        .catch(error => {
-            console.log('Error fetching and parsing data', error);
-        });
+        this.performSearch();
     }
 
-    performSearch = (query = 'cats') => {
-        fetch(`https://api.unsplash.com/photos/?&client_id=YOUR-API-KEY`)
+    performSearch = (query = 'balloon') => {
+        fetch(`https://api.unsplash.com/search/photos?query=${query}&client_id=YOUR-API-KEY`)
         .then(response => response.json())
         .then(responseData => {
             this.setState({
-                photos: responseData
+                results: responseData.results,
+                loading: false
             });
         })
         .catch(error => {
             console.log('Error fetching and parsing data', error);
         });
-
     }
 
     render() {
@@ -45,10 +41,12 @@ class App extends Component {
                 <header className="App-header">
                   <img src={logo} className="App-logo" alt="logo" />
                   <h1 className="App-title">Hello World</h1>
+                    <SearchPhotos onSearch={this.performSearch} />
                 </header>
-                <SearchPhotos onSearch={this.performSearch} />
                 <div>
-                    <PhotoList photos={this.state.photos} />
+                    {
+                        (this.state.loading) ? <p>Loading</p> : <PhotoList results={this.state.results} />
+                    }
                 </div>
             </div>
         );
