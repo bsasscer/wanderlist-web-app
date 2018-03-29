@@ -1,4 +1,8 @@
-.header {
+body {
+    background-color: #F8F8F8;
+}
+
+header {
     background: url('/images/jonatan-pie-226805-unsplash_mini.jpg');
     background-position: 50% 50%;
     background-repeat: no-repeat;
@@ -6,14 +10,30 @@
     height: 100vh;
 }
 
-.photo-list {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    grid-gap: 5px;
-    margin: 0 auto;
-    max-width: 80%;
-}
-
 .user-profile-img {
     border-radius: 50%;
+}
+
+main {
+    text-align: center;
+}
+
+.photo-list {
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(2, 1fr);
+    margin: 0 auto;
+    max-width: 800px;
+}
+
+.tile {
+    background-color: #FFF;
+    overflow: hidden;
+}
+
+.post-img img {
+    height: 100%;
+    width: 100%;
+    object-position: center;
+    object-fit: cover;
 }

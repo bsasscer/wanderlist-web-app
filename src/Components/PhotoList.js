@@ -5,11 +5,15 @@ const PhotoList = props =>
 
     <div className="photo-list">
         {props.results.map((result, index) =>
-            <div key={index}>
-                <img src={result.urls.small} key={result.id} />
-                {/* <img src={result.user.profile_image.small} className="user-profile-img" />
-                <p className="user-name">{result.user.name}</p>
-                <span>{result.likes}</span> */}
+            <div className="tile" key={index}>
+                <div className="post-img">
+                    <img src={result.urls.small} key={result.id} />
+                </div>
+                <div className="post-info">
+                    <img src={result.user.profile_image.small} className="user-profile-img" />
+                    <p className="user-name">{result.user.name}</p>
+                    <span>Likes: {result.likes}</span>
+                </div>
             </div>
         )}
     </div>;

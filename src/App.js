@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
+import Header from './Components/Header';
 import PhotoList from './Components/PhotoList';
 import SearchPhotos from './Components/SearchPhotos';
+import Aside from './Components/Aside';
 import './App.css';
 
 
@@ -37,14 +39,14 @@ class App extends Component {
 
         return (
             <div className="App">
-                <header className="header">
-                </header>
+                <Header />
                 <SearchPhotos onSearch={this.performSearch} />
-                <div className="main">
+                <main>
                     {
                         (this.state.loading) ? <p>Loading</p> : <PhotoList results={this.state.results} />
                     }
-                </div>
+                </main>
+                <Aside />
             </div>
         );
     }
