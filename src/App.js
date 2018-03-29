@@ -20,7 +20,7 @@ class App extends Component {
     }
 
     performSearch = (query = 'germany') => {
-        fetch(`https://api.unsplash.com/search/photos?query=${query}&orientation=landscape&client_id=9fdb3a7d4e795ad5ae390a8814311bb31f8e16ebba0816b769cffb8ef2d55a88`)
+        fetch(`https://api.unsplash.com/search/photos?query=${query}&orientation=landscape&client_id=YOUR-API-KEY`)
         .then(response => response.json())
         .then(responseData => {
             this.setState({
@@ -37,12 +37,10 @@ class App extends Component {
 
         return (
             <div className="App">
-                <header className="App-header">
-                  <img src={logo} className="App-logo" alt="splash" />
-                  <h1 className="App-title">Hello World</h1>
-                    <SearchPhotos onSearch={this.performSearch} />
+                <header className="header">
                 </header>
-                <div>
+                <SearchPhotos onSearch={this.performSearch} />
+                <div className="main">
                     {
                         (this.state.loading) ? <p>Loading</p> : <PhotoList results={this.state.results} />
                     }
