@@ -1,9 +1,7 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import Header from './Components/Header';
 import PhotoList from './Components/PhotoList';
 import SearchPhotos from './Components/SearchPhotos';
-import Aside from './Components/Aside';
 import API_KEY from './config_keys';
 import './App.css';
 
@@ -40,14 +38,16 @@ class App extends Component {
 
         return (
             <div className="App">
-                <Header />
-                <SearchPhotos onSearch={this.performSearch} />
+                <header>
+                    <h1>Wanderlist</h1>
+                    <h2>Your Visual Travel Planner</h2>
+                </header>
                 <main>
                     {
                         (this.state.loading) ? <p>Loading</p> : <PhotoList results={this.state.results} />
                     }
                 </main>
-                <Aside />
+                <SearchPhotos onSearch={this.performSearch} />
             </div>
         );
     }

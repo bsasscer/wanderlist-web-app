@@ -2,28 +2,45 @@ body {
     background-color: #F8F8F8;
 }
 
+.App {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-gap: 10px;
+    grid-template-areas:
+    "header"
+    "main"
+
+}
+
 header {
-    background: url('/images/jonatan-pie-226805-unsplash_mini.jpg');
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100vh;
+  background: url('/images/jonatan-pie-226805-unsplash_mini.jpg');
+  background-position: 50% 50%;
+  background-repeat: no-repeat;
+  background-size: cover;
+  display: flex;
+  color: #fff;
+  flex-direction: column;
+  justify-content: center;
+  grid-area: header;
+  height: 100vh;
+  text-align: center;
+}
+
+main {
+    grid-area: main;
+
 }
 
 .user-profile-img {
     border-radius: 50%;
 }
 
-main {
-    text-align: center;
-}
-
 .photo-list {
     display: grid;
-    grid-gap: 10px;
-    grid-template-columns: repeat(2, 1fr);
+    grid-gap: 20px;
     margin: 0 auto;
-    max-width: 800px;
+    max-width: 1000px;
+    width: 90%;
 }
 
 .tile {
@@ -36,4 +53,38 @@ main {
     width: 100%;
     object-position: center;
     object-fit: cover;
+}
+
+
+/* =====================================
+   Media Queries
+======================================== */
+
+@media (min-width: 768px) {
+
+    .App {
+        grid-template-columns: repeat(3, 1fr);
+        grid-template-areas:
+            "header header header"
+            "main main main"
+    }
+
+    .photo-list {
+        grid-template-columns: repeat(2, minmax(280px, 1fr));
+        width: 80%;
+    }
+
+}
+
+@media (min-width: 992px) {
+
+    .App {
+      grid-template-areas:
+            "header header header"
+            "main main main"
+    }
+
+    .photo-list {
+        grid-template-columns: repeat(3, minmax(280px, 1fr));
+    }
 }
