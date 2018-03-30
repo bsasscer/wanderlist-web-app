@@ -42,12 +42,12 @@ class App extends Component {
                     <h1>Wanderlist</h1>
                     <h2>Your Visual Travel Planner</h2>
                 </header>
+                <SearchPhotos onSearch={this.performSearch} />
                 <main>
                     {
                         (this.state.loading) ? <p>Loading</p> : <PhotoList results={this.state.results} />
                     }
                 </main>
-                <SearchPhotos onSearch={this.performSearch} />
             </div>
         );
     }

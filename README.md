@@ -3,7 +3,7 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 Wanderlist
 =============
 
-This is an app for those of us who organize our itineraries around amazing photos.
+This is an app for those of us who need photo inspiration for our travel itineraries.
 
 ## To Download and Fetch Dependencies
 ```bash
