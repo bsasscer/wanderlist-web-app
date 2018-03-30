@@ -4,6 +4,7 @@ import Header from './Components/Header';
 import PhotoList from './Components/PhotoList';
 import SearchPhotos from './Components/SearchPhotos';
 import Aside from './Components/Aside';
+import API_KEY from './config_keys';
 import './App.css';
 
 
@@ -22,7 +23,7 @@ class App extends Component {
     }
 
     performSearch = (query = 'germany') => {
-        fetch(`https://api.unsplash.com/search/photos?query=${query}&orientation=landscape&client_id=YOUR-API-KEY`)
+        fetch(`https://api.unsplash.com/search/photos?query=${query}&client_id=${API_KEY}`)
         .then(response => response.json())
         .then(responseData => {
             this.setState({

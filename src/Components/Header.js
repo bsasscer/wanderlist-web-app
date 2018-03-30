@@ -4,7 +4,10 @@ class Header extends Component {
 
     render() {
         return(
-            <header></header>
+            <header>
+                <h1>Wanderlist</h1>
+                <h2>Your Visual Travel Planner</h2>
+            </header>
         );
     }
 }
