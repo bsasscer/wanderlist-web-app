@@ -1,3 +1,7 @@
+* {
+	box-sizing: border-box;
+}
+
 body {
     background-color: #F8F8F8;
     margin: 0;
@@ -39,7 +43,7 @@ header {
     background-color: #FFF;
     display: flex;
     flex-direction: column;
-    /* flex: 0 1 calc(25% - 1em); */
+    flex: 0 1 calc(25% - 1em);
     overflow: hidden;
 }
 
