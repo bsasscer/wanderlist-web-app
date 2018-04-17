@@ -4,87 +4,73 @@ body {
     padding: 0;
 }
 
-.App {
-    display: grid;
-    grid-template-columns: 1fr;
-    grid-gap: 10px;
-    grid-template-areas:
-    "header"
-    "main"
+header {
+    display: flex;
+}
 
+.photo-list {
+    width: 95%;
+    margin: 0 auto;
+    max-width: 1000px;
+    display: grid;
+    grid-gap: 10px;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
 }
 
 header {
-  background: url('/images/jonatan-pie-226805-unsplash_mini.jpg');
-  background-position: 50% 50%;
-  background-repeat: no-repeat;
-  background-size: cover;
-  display: flex;
-  color: #fff;
-  flex-direction: column;
-  justify-content: center;
-  grid-area: header;
-  height: 100vh;
-  text-align: center;
+    background: url('/images/jonatan-pie-226805-unsplash_mini.jpg');
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+    flex-direction: column;
+    justify-content: center;
+    grid-area: header;
+    height: 100vh;
+    text-align: center;
 }
 
-main {
-    grid-area: main;
-
-}
 
 .user-profile-img {
     border-radius: 50%;
 }
 
-.photo-list {
-    display: grid;
-    grid-gap: 20px;
-    margin: 0 auto;
-    max-width: 1000px;
-    width: 90%;
-}
-
 .tile {
     background-color: #FFF;
+    display: flex;
+    flex-direction: column;
+    /* flex: 0 1 calc(25% - 1em); */
     overflow: hidden;
 }
-
-.post-img img {
-    height: 100%;
-    width: 100%;
-}
-
 
 /* =====================================
    Media Queries
 ======================================== */
 
-@media (min-width: 768px) {
-
-    .App {
-        grid-template-columns: repeat(3, 1fr);
-        grid-template-areas:
-            "header header header"
-            "main main main"
-    }
-
+/* @media screen and (min-width: 40em) {
     .photo-list {
-        grid-template-columns: repeat(2, minmax(280px, 1fr));
-        width: 80%;
-    }
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-between;
+   }
 
+    .tile {
+        flex: 0 1 calc(50% - 1em);
+    }
 }
 
-@media (min-width: 992px) {
-
-    .App {
-      grid-template-areas:
-            "header header header"
-            "main main main"
-    }
-
+@media screen and (min-width: 60em) {
     .photo-list {
-        grid-template-columns: repeat(3, minmax(280px, 1fr));
+   }
+
+    .tile {
+        flex: 0 1 calc(25% - 1em);
+     }
+} */
+
+
+/* @media screen and (min-width: 52em) {
+    .centered {
+
     }
-}
+} */
