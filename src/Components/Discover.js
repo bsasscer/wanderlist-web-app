@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 
-class SearchPhotos extends Component {
+class Discover extends Component {
 
     state = {
         searchText: ''
@@ -33,4 +33,4 @@ class SearchPhotos extends Component {
     }
 }
 
-export default SearchPhotos;
+export default Discover;

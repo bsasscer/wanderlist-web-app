@@ -53,8 +53,6 @@ main {
 .post-img img {
     height: 100%;
     width: 100%;
-    object-position: center;
-    object-fit: cover;
 }
 
 
