@@ -43,6 +43,14 @@ class App extends Component {
                 <Route exact path="/" render={() => (
                     <div>
                         <header>
+                            <nav className="nav-outer">
+                                <ul className="nav-inner">
+                                    <li><Link to="/discover">Discover</Link></li>
+                                    <li><Link to="/trips">Trips</Link></li>
+                                    <li><Link to="/wishlist">Wishlist</Link></li>
+                                    <li><Link to="/profile">Profile</Link></li>
+                                </ul>
+                            </nav>
                             <h1>Wanderlist</h1>
                             <h2>Your Visual Travel Planner</h2>
                         </header>
