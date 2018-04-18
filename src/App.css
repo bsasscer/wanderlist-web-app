@@ -14,11 +14,12 @@ header {
 
 .photo-list {
     width: 95%;
-    margin: 0 auto;
-    max-width: 1000px;
+    margin: 20px auto;
+    max-width: 1085px;
     display: grid;
     grid-gap: 10px;
     grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    /* grid-template-columns: minmax(0,1fr) minmax(0,1fr) minmax(0,1fr); */
 }
 
 header {
@@ -34,9 +35,26 @@ header {
     text-align: center;
 }
 
+.user-info {
+    align-items: center;
+    display: inline-flex;
+    padding: 10px;
+    position: relative;
+}
+
+.user-img {
+    margin-right: 10px;
+    max-width: 100%;
+}
 
 .user-profile-img {
     border-radius: 50%;
+    height: 32px;
+    width: 32px;
+}
+
+a {
+    text-decoration: none;
 }
 
 .tile {
@@ -44,7 +62,31 @@ header {
     display: flex;
     flex-direction: column;
     flex: 0 1 calc(25% - 1em);
+    min-height: 330px;
     overflow: hidden;
+    position: relative;
+}
+
+.post-img {
+    background-position: center center;
+    background-size: cover;
+    height: 230px;
+    width: 100%;
+}
+
+.post-content {
+    padding: 10px;
+}
+
+.post-info {
+    align-items: center;
+    bottom: 0;
+    display: flex;
+    height: 60px;
+    justify-content: space-between;
+    padding: 0 13px;
+    position: absolute;
+    width: 100%;
 }
 
 /* =====================================
