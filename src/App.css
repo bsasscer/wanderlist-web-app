@@ -37,10 +37,20 @@ header {
     text-align: center;
 }
 
+.overlay {
+    background: linear-gradient(to bottom, #151519 0%,rgba(21,21,25,0.9) 15%,rgba(21,21,25,0.7) 30%,rgba(21,21,25,0.6) 40%,rgba(21,21,25,0.5) 50%,rgba(21,21,25,0.4) 60%,rgba(21,21,25,0.3) 70%,rgba(21,21,25,0.2) 80%,rgba(21,21,25,0.1) 85%,rgba(21,21,25,0) 98%);
+    height: 130px;
+    left: 0;
+    position: absolute;
+    right: 0;
+    z-index: 3;
+}
+
 .nav-outer {
     color: #fff;
     justify-content: space-between;
     padding: 2em;
+    z-index: 4;
 }
 
 .nav-inner {
@@ -58,6 +68,12 @@ ul li {
 li a {
     color: #fff;
     padding: 0 .4em;
+}
+
+.splash {
+    font-size: 30px;
+    line-height: 60px;
+
 }
 
 .user-info {
@@ -84,6 +100,7 @@ a {
 
 .tile {
     background-color: #FFF;
+    border-radius: 4px;
     box-shadow: 0 2px 20px 0 rgba(0,0,0,0.05);
     display: flex;
     flex-direction: column;

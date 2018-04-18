@@ -43,6 +43,7 @@ class App extends Component {
                 <Route exact path="/" render={() => (
                     <div>
                         <header>
+                            <div className="overlay"></div>
                             <nav className="nav-outer">
                                 <ul className="nav-inner">
                                     <li><Link to="/discover">Discover</Link></li>
@@ -51,8 +52,10 @@ class App extends Component {
                                     <li><Link to="/profile">Profile</Link></li>
                                 </ul>
                             </nav>
-                            <h1>Wanderlist</h1>
-                            <h2>Your Visual Travel Planner</h2>
+                            <div className="splash">
+                                <h1>Wanderlist</h1>
+                                <h2>Your Visual Travel Planner</h2>
+                            </div>
                         </header>
                         {
                             (this.state.loading) ? <p>Loading</p> : <PhotoList photos={this.state.photos} />
