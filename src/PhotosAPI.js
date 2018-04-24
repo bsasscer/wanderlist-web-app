@@ -13,11 +13,5 @@ export const getCurated = () =>
 
 
 export const search = (query) =>
-    fetch(`${API}search/photos?`, {
-        method: 'GET',
-        headers: {
-            ...headers,
-            'Content-Type': 'application/json'
-        },
-        body: JSON.stringify({ query })
-    }).then(res => res.json()).then(data => data.results)
+    fetch(`${API}search/photos?query=${query}&client_id=${API_KEY}`)
+        .then(res => res.json()).then(data => data.results)
