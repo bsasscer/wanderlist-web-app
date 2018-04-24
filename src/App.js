@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { Route, Link } from 'react-router-dom'
+import Header from './Components/Header';
 import PhotoList from './Components/PhotoList';
 import Discover from './Components/Discover';
 import * as PhotosAPI from './PhotosAPI';
@@ -32,24 +33,9 @@ class App extends Component {
         console.log(this.state);
         return (
             <div className="App container">
-                <header>
-                    <div className="overlay"></div>
-                    <nav className="nav-outer">
-                        <ul className="nav-inner">
-                            <li><Link to="/discover">Discover</Link></li>
-                            <li><Link to="/trips">Trips</Link></li>
-                            <li><Link to="/wishlist">Wishlist</Link></li>
-                            <li><Link to="/profile">Profile</Link></li>
-                        </ul>
-                    </nav>
-                    <div className="splash">
-                        <h1>Wanderlist</h1>
-                        <h2>Your Visual Travel Planner</h2>
-                    </div>
-                </header>
+                <Header />
                 <Route exact path="/" render={() => (
                     <div>
-
                         {
                             (this.state.loading) ? <p>Loading</p> : <PhotoList photos={this.state.photos} />
                         }

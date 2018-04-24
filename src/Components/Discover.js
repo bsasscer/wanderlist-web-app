@@ -11,6 +11,7 @@ class Discover extends Component {
     }
 
     // TODO Clear results when there is no query
+    // TODO Add ability to go back to main page
     handleChange(e) {
         this.setState({
             query: e.target.value
