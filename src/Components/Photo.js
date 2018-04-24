@@ -25,6 +25,7 @@ class Photo extends Component {
                 <div className="post-info">
                     <span>Likes: {photo.likes}</span>
                     <span>{photo.user.location}</span>
+                    <span><button>Like</button></span>
                     <span><button>Save</button></span>
                 </div>
             </div>
