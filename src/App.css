@@ -15,6 +15,17 @@ header,
     flex-direction: column;
 }
 
+header {
+    background: url('/images/jonatan-pie-226805-unsplash_mini.jpg');
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: #fff;
+    font-family: 'Merriweather', serif;
+    height: 60vh;
+    text-align: center;
+}
+
 .photo-list {
     color: #50505e;
     font-family: 'Source Sans Pro', sans-serif;
@@ -27,17 +38,6 @@ header,
     /* grid-template-columns: minmax(0,1fr) minmax(0,1fr) minmax(0,1fr); */
 }
 
-header {
-    background: url('/images/jonatan-pie-226805-unsplash_mini.jpg');
-    background-position: 50% 50%;
-    background-repeat: no-repeat;
-    background-size: cover;
-    color: #fff;
-    font-family: 'Merriweather', serif;
-    height: 100vh;
-    text-align: center;
-}
-
 .overlay {
     background: linear-gradient(to bottom, #151519 0%,rgba(21,21,25,0.9) 15%,rgba(21,21,25,0.7) 30%,rgba(21,21,25,0.6) 40%,rgba(21,21,25,0.5) 50%,rgba(21,21,25,0.4) 60%,rgba(21,21,25,0.3) 70%,rgba(21,21,25,0.2) 80%,rgba(21,21,25,0.1) 85%,rgba(21,21,25,0) 98%);
     height: 130px;
@@ -47,10 +47,15 @@ header {
     z-index: 3;
 }
 
+nav {
+    background-color: #151519;
+}
+
 .nav-outer {
     color: #fff;
     justify-content: space-between;
     padding: 2em;
+    text-align: center;
     z-index: 4;
 }
 
@@ -72,8 +77,13 @@ li a {
 }
 
 .splash {
+    align-self: center;
+    display: flex;
+    flex-direction: column;
     font-size: 30px;
+    justify-content: center;
     line-height: 60px;
+    z-index: 8;
 
 }
 
@@ -132,6 +142,36 @@ a {
     padding: 0 13px;
     position: absolute;
     width: 100%;
+}
+
+.wishlist-nav ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    margin: 0;
+}
+
+.wishlist-nav li {
+    font-size: 18px;
+}
+
+.wishlist-nav li a {
+    color: #50505e;
+    font-family: 'Source Sans Pro', sans-serif;
+}
+
+.collections-grid {
+    display: grid;
+    grid-gap: 5px;
+    grid-template-rows: 60px 4em 60px;
+    grid-template-columns: 2fr 1fr 1fr;
+    margin: 0 auto;
+    width: 80%;
+}
+
+.item {
+    background-color: lavender;
+    border: 1px solid gray;
 }
 
 /* =====================================
