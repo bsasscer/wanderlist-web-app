@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import {
-    BrowserRouter as Router,
-    Link,
+    NavLink,
+    Redirect,
     Route } from 'react-router-dom';
 import Likes from './Likes';
 import Collections from './Collections';
@@ -18,18 +18,17 @@ class Wishlist extends Component {
     render() {
 
         return (
-            <Router>
-                <div>
-                    <div className="wishlist-nav">
-                        <ul>
-                            <li><Link to="/likes">Likes</Link></li>
-                            <li><Link to="/collections">Collections</Link></li>
-                        </ul>
-                    </div>
-                    <Route path="/collections" component={Collections} />
-                    <Route path="/likes" component={Likes}/>
+            <div>
+                <div className="wishlist-nav">
+                    <ul>
+                        <li><NavLink to="/wishlist/likes">Likes</NavLink></li>
+                        <li><NavLink to="/wishlist/collections">Collections</NavLink></li>
+                    </ul>
                 </div>
-            </Router>
+                <Route exact path="/wishlist" render={ () => <Redirect to="/wishlist/likes" /> } /> 
+                <Route path="/wishlist/collections" component={Collections} />
+                <Route path="/wishlist/likes" component={Likes}/>
+            </div>
         );
     }
 }
