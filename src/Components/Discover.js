@@ -11,7 +11,6 @@ class Discover extends Component {
     }
 
     // TODO Clear results when there is no query
-    // TODO Add ability to go back to main page
     handleChange(e) {
         this.setState({
             query: e.target.value
@@ -41,6 +40,7 @@ class Discover extends Component {
                         name="search"
                         onChange={this.handleChange.bind(this)}
                         placeholder="Search..."
+                        ref={ (input) => this.search = input }
                         query={this.state.query}
                     />
                     <button className="search-button" type="submit" id="submit" >Go!</button>

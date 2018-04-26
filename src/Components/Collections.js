@@ -4,6 +4,12 @@ function Collections () {
     return (
         <div>
             <h1>Collections</h1>
+            <form className="create-collection">
+                <input
+                    placeholder="Create a new collection"
+                />
+                <button className="create-button" type="submit">Create</button>
+            </form>
             <div className="collections-grid">
                 <div className="item">Some Content</div>
                 <div className="item">Yeah</div>
