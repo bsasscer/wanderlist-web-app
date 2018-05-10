@@ -35,6 +35,26 @@ const ProfileSchema = new Schema({
       type: String
     }
   },
+  trips: [
+    {
+      country: {
+        type: String,
+        required: true
+      },
+      city: {
+        type: String
+      },
+      from: {
+        type: Date
+      },
+      to: {
+        type: Date
+      },
+      description: {
+        type: String
+      }
+    }
+  ],
   date: {
     type: Date,
     default: Date.now
