@@ -10,7 +10,7 @@ const validateTripInput = require('../../validation/trips');
 // Load Profile Model
 const Profile = require('../../models/Profile');
 
-//Load User Profile
+//Load User Model
 const User = require('../../models/User');
 
 // @route   GET api/profile/test
@@ -93,6 +93,7 @@ router.get('/all', (req, res) => {
     })
     .catch(err => res.status(404).json({ profile: 'There are no profiles' }));
 });
+
 // @route   POST api/profile
 // @desc    Create or Edit user profile
 // @access  Private
@@ -153,6 +154,9 @@ router.post(
   }
 );
 
+// @route   POST api/profile/trips
+// @desc    Add trips to profile
+// @access  Private
 router.post(
   '/trips',
   passport.authenticate('jwt', { session: false }),
@@ -181,4 +185,43 @@ router.post(
       .catch(err => res.status(400).json(err));
   }
 );
+
+// @route   DELETE api/profile/trips/:trip_id
+// @desc    Delete trip from profile
+// @access  Private
+router.delete(
+  '/trips/:trip_id',
+  passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    Profile.findOne({ user: req.user.id })
+      .then(profile => {
+        const removeIndex = profile.trips
+          .map(item => item.id)
+          .indexOf(req.params.trip_id);
+
+        // Splice out of array
+        profile.trips.splice(removeIndex, 1);
+
+        // Save
+        profile.save().then(profile => res.json(profile));
+      })
+      .catch(err => res.status(404).json(err));
+  }
+);
+
+// @route   DELETE api/profile
+// @desc    Delete user and profile
+// @access  Private
+router.delete(
+  '/',
+  passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    Profile.findOneAndRemove({ user: req.user.id }).then(() => {
+      User.findOneAndRemove({ _id: req.user.id }).then(() =>
+        res.json({ success: true })
+      );
+    });
+  }
+);
+
 module.exports = router;
