@@ -32,6 +32,12 @@ module.exports = function validateProfileInput(data) {
     }
   }
 
+  if (!isEmpty(data.facebook)) {
+    if (!Validator.isURL(data.facebook)) {
+      errors.facebook = 'Not a valid URL';
+    }
+  }
+
   return {
     errors,
     isValid: isEmpty(errors)

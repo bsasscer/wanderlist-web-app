@@ -16,6 +16,27 @@ const User = require('../../models/User');
 // @desc    Tests profile route
 router.get('/test', (req, res) => res.json({ msg: 'Profile works' }));
 
+// @route   GET api/profile
+// @desc    Get current user profile
+// @access  Private
+router.get(
+  '/',
+  passport.authenticate('jwt', { session: false }),
+  (req, res) => {
+    const errors = {};
+    Profile.findOne({ user: req.user.id })
+      .populate('user', ['name', 'avatar'])
+      .then(profile => {
+        if (!profile) {
+          errors.noprofile = 'There is no profile for this user';
+          return res.status(404).json(errors);
+        }
+        res.json(profile);
+      })
+      .catch(err => res.status(404).json(err));
+  }
+);
+
 // @route   POST api/profile
 // @desc    Create or Edit user profile
 // @access  Private
@@ -41,13 +62,14 @@ router.post(
 
     // Loves - split into array
     if (typeof req.body.loves !== 'undefined') {
-      profileFields.skills = req.body.skills.split(',');
+      profileFields.loves = req.body.loves.split(',');
     }
 
     // Socials
     profileFields.social = {};
     if (req.body.twitter) profileFields.social.twitter = req.body.twitter;
     if (req.body.instagram) profileFields.social.instagram = req.body.instagram;
+    if (req.body.facebook) profileFields.social.facebook = req.body.facebook;
 
     Profile.findOne({ user: req.user.id }).then(profile => {
       if (profile) {
