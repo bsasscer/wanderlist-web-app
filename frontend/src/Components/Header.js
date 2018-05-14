@@ -1,18 +1,9 @@
 import React, { Component } from 'react';
 
 class Header extends Component {
-  state = {
-    title: 'Wanderlist',
-    subtitle: 'Your Visual Travel Planner'
-  };
-
   render() {
     return (
       <header>
-        <div className="overlay">
-          <h1>{this.state.title}</h1>
-          <h2>{this.state.subtitle}</h2>
-        </div>
         <div className="splash" />
         <a
           className="credit-badge"
