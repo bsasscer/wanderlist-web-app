@@ -8,6 +8,10 @@ body {
   padding: 0;
 }
 
+/* =====================================
+  Header
+======================================== */
+
 header,
 .nav-outer,
 .nav-inner {
@@ -17,31 +21,18 @@ header,
 
 header {
   color: #fff;
+  display: grid;
   font-family: 'Merriweather', serif;
+  grid-template-columns: 1fr 1fr;
   height: 60vh;
   position: relative;
-  text-align: center;
   width: 100%;
   height: 100%;
 }
 
-.overlay {
-  height: 130px;
-  left: 0;
-  position: absolute;
-  right: 0;
-  z-index: 3;
-}
-
-.overlay h1,
-.overlay h2 {
-  align-self: center;
-  display: flex;
-  flex-direction: column;
-  font-size: 30px;
-  justify-content: center;
-  line-height: 60px;
-  z-index: 8;
+.intro {
+  color: #333;
+  padding: 0.5em 0 0 2em;
 }
 
 .splash {
@@ -79,29 +70,28 @@ header {
   fill: white;
 } */
 
-.photo-list {
-  color: #50505e;
-  font-family: 'Source Sans Pro', sans-serif;
-  width: 95%;
-  margin: 20px auto;
-  max-width: 1085px;
-  display: grid;
-  grid-gap: 10px;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  /* grid-template-columns: minmax(0,1fr) minmax(0,1fr) minmax(0,1fr); */
-}
+/* =====================================
+  Nav
+======================================== */
 
 .nav-outer {
+  background: #fff;
+  border-bottom: 1px solid #aeaeae;
   font-family: 'Source Sans Pro', sans-serif;
   justify-content: space-between;
+  min-height: 80px;
+  position: fixed;
   padding: 2em;
   text-align: center;
   text-transform: uppercase;
-  z-index: 4;
+  top: 0;
+  width: 100%;
+  z-index: 80;
 }
 
 .logo-placeholder {
   color: #333;
+  font-size: 20px;
   letter-spacing: 0.25em;
 }
 
@@ -109,7 +99,6 @@ header {
   font-family: 'Source Sans Pro', sans-serif;
   margin: 0;
   padding-left: 0;
-  text-transform: uppercase;
   width: 100%;
 }
 
@@ -131,6 +120,22 @@ li a {
   display: inline-flex;
   padding: 10px;
   position: relative;
+}
+
+/* =====================================
+   Photo Grid
+======================================== */
+
+.photo-list {
+  color: #50505e;
+  font-family: 'Source Sans Pro', sans-serif;
+  width: 95%;
+  margin: 20px auto;
+  max-width: 1085px;
+  display: grid;
+  grid-gap: 10px;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  /* grid-template-columns: minmax(0,1fr) minmax(0,1fr) minmax(0,1fr); */
 }
 
 .user-img {
@@ -183,10 +188,13 @@ a {
   width: 100%;
 }
 
+/* =====================================
+   Search form
+======================================== */
+
 form {
-  background: white;
+  border-style: solid 4px #333;
   border-radius: 0.2em;
-  border: solid 4px white;
   box-shadow: 0 1px 14px rgba(0, 0, 0, 0.12);
   display: flex;
   overflow: hidden;
@@ -195,11 +203,15 @@ form {
   -webkit-box-shadow: 0 1px 14px rgba(0, 0, 0, 0.12);
 }
 
+form input {
+  background: #fff;
+}
+
 form button {
   padding: 0 1em;
   font-size: 1em;
   background: #7bcbc4;
-  border-radius: 0.2em;
+  border-radius: 0 0.2em 0.2em 0;
 }
 
 input,
@@ -214,12 +226,15 @@ input {
   width: 100%;
 }
 
+/* =====================================
+   Albums
+======================================== */
+
 .albums-grid {
   display: grid;
   grid-gap: 5px;
   grid-template-columns: 2fr 1fr 1fr;
   grid-template-rows: 60px 4em 60px;
-
   margin: 0 auto;
   width: 80%;
 }
